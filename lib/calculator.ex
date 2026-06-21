@@ -3,19 +3,26 @@ defmodule Calculator do
   def main(args) do
     case args do
       [operation, a, b] ->
-        a = String.to_integer(a)
-        b = String.to_integer(b)
+        case {parse_number(a), parse_number(b)} do
+          {{:ok, number_a}, {:ok, number_b}} ->
+            operation
+            |> run(number_a, number_b)
+            |> format_result()
+            |> IO.puts()
 
-      operation
-      |> run(a, b)
-      |> format_result()
-      |> IO.puts()
+          {{:error, reason}, _} ->
+            IO.puts("Error: #{reason}")
 
-    _ ->
+          {_, {:error, reason}} ->
+            IO.puts("Error: #{reason}")
+        end
+
+      _ ->
       IO.puts("Usage: calculator <operation> <a> <b>")
     end
   end
 
+  # functions run/3
   def run("add", a, b) do
     {:ok, add(a, b)}
   end
@@ -76,5 +83,15 @@ defmodule Calculator do
 
   def format_result({:error, reason}) do
     "Error: #{reason}"
+  end
+  # éviter le plantage
+  def parse_number(value) do
+    case Integer.parse(value) do
+      {number, ""} ->
+        {:ok, number}
+
+      _->
+        {:error, "Invalid number: #{value}"}
+    end
   end
 end
