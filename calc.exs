@@ -6,7 +6,7 @@ Calculator.main(args)
 
  #Calculator.main(System.argv())
 
-# pour tester
+# pour tester manuellement
 # mix run calc.exs -- add 2 3 //Result: 5
 # mix run calc.exs -- add 10 0 //Error: Cannot divide by zero
 
