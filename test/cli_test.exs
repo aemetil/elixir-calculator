@@ -60,4 +60,25 @@ defmodule Calculator.CLITest do
     assert output =~ "Usage: calculator <operation> <a> <b>"
     assert output =~ "Run `calculator help` for available operations."
   end
+
+  test "prints result for power operation" do
+    output =
+      capture_io(fn ->
+        Calculator.CLI.main(["power", "2", "3"])
+      end)
+
+    assert output == "Result: 8.0\n"
+  end
+
+  test "help includes all available operations" do
+    output =
+      capture_io(fn ->
+        Calculator.CLI.main(["help"])
+      end)
+
+    for operation <- Calculator.operations() do
+      assert output =~ operation.name
+      assert output =~ operation.description
+    end
+  end
 end

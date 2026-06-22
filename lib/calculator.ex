@@ -1,4 +1,16 @@
 defmodule Calculator do
+  # centraliser la liste des opérations
+  def operations do
+  [
+    %{name: "add", description: "Add two numbers"},
+    %{name: "subtract", description: "Subtract second number from first number"},
+    %{name: "multiply", description: "Multiply two numbers"},
+    %{name: "divide", description: "Divide first number by second number"},
+    %{name: "modulo", description: "Get remainder of division"},
+    %{name: "power", description: "Raise first number to the power of second number"}
+  ]
+  end
+
   # functions run/3
   def run("add", a, b) do
     {:ok, add(a, b)}

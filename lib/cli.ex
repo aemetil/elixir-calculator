@@ -26,25 +26,24 @@ defmodule Calculator.CLI do
   end
 
  #hellp commands
- def print_help do
-    IO.puts("""
-    Calculator CLI
+  def print_help do
+    operations_text =
+      Calculator.operations()
+      |> Enum.map_join("\n", fn operation ->
+        "  #{String.pad_trailing(operation.name, 9)} #{operation.description}"
+      end)
 
-    Usage:
-      calculator <operation> <a> <b>
-
-    Operations:
-      add       Add two numbers
-      subtract  Subtract second number from first number
-      multiply  Multiply two numbers
-      divide    Divide first number by second number
-      modulo    Get remainder of division
-      power     Raise first number to the power of second number
-
-    Examples:
-      calculator add 2 3
-      calculator divide 10 2
-      calculator modulo 10 3
-    """)
+    IO.puts(
+      "Calculator CLI\n\n" <>
+        "Usage:\n" <>
+        "  calculator <operation> <a> <b>\n\n" <>
+        "Operations:\n" <>
+        operations_text <>
+        "\n\n" <>
+        "Examples:\n" <>
+        "  calculator add 2 3\n" <>
+        "  calculator divide 10 2\n" <>
+        "  calculator modulo 10 3\n"
+    )
   end
 end

@@ -65,6 +65,19 @@ defmodule CalculatorTest do
   test "power returns raw math result" do
     assert Calculator.power(2, 3) == 8.0
   end
+
+  test "lists available operations" do
+  operations = Calculator.operations()
+
+  assert Enum.map(operations, fn operation -> operation.name end) == [
+           "add",
+           "subtract",
+           "multiply",
+           "divide",
+           "modulo",
+           "power"
+         ]
+  end
 end
 
 
