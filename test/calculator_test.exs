@@ -61,6 +61,10 @@ defmodule CalculatorTest do
   test "calculates power" do
     assert Calculator.run("power", 2, 3) == {:ok, 8.0}
   end
+
+  test "power returns raw math result" do
+    assert Calculator.power(2, 3) == 8.0
+  end
 end
 
 
