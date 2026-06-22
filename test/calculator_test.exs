@@ -6,8 +6,8 @@ defmodule CalculatorTest do
     assert Calculator.run("add", 2, 3) == {:ok, 5}
   end
 
-  test "substact two numbers" do
-    assert Calculator.run("substract", 10, 4) == {:ok, 6}
+  test "subtract two numbers" do
+    assert Calculator.run("subtract", 10, 4) == {:ok, 6}
   end
 
   test "multiplies two numbers" do

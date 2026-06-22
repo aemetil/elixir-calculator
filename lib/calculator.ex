@@ -4,8 +4,8 @@ defmodule Calculator do
     {:ok, add(a, b)}
   end
 
-  def run("substract", a, b) do
-    {:ok, substract(a, b)}
+  def run("subtract", a, b) do
+    {:ok, subtract(a, b)}
   end
 
   def run("multiply", a, b) do
@@ -33,7 +33,7 @@ defmodule Calculator do
     a + b
   end
 
-  def substract(a, b) do
+  def subtract(a, b) do
     a - b
   end
 
