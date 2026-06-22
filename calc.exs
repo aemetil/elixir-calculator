@@ -2,7 +2,7 @@
 args =
   System.argv()
   |> Enum.reject(fn arg -> arg == "--" end)
-Calculator.main(args)
+Calculator.CLI.main(args)
 
  #Calculator.main(System.argv())
 
