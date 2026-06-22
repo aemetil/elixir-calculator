@@ -21,6 +21,7 @@ defmodule Calculator.CLI do
 
       _ ->
         IO.puts("Usage: calculator <operation> <a> <b>")
+        IO.puts("Run `calculator help` for available operations.")
     end
   end
 
