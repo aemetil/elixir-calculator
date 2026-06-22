@@ -43,6 +43,10 @@ defmodule Calculator do
     modulo(a, b)
   end
 
+  def run("power", a, b) do
+    {:ok, power(a, b)}
+  end
+
   def run(_operation, _a, _b) do
     {:error, "Unknown operation"}
   end
@@ -74,6 +78,10 @@ defmodule Calculator do
 
   def modulo(a, b) do
     {:ok, rem(a, b)}
+  end
+
+  def power(a, b) do
+    :math.pow(a, b)
   end
 
   # display

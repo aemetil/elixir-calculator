@@ -57,6 +57,10 @@ defmodule CalculatorTest do
   test "formats error result" do
     assert Calculator.format_result({:error, "Boom"}) == "Error: Boom"
   end
+
+  test "calculates power" do
+    assert Calculator.run("power", 2, 3) == {:ok, 8.0}
+  end
 end
 
 
@@ -64,6 +68,7 @@ end
 # mix test
 
 # tests manuel
-# Calculator.format_result(Calculator.run("modulo", 10, 3))
+# iex -S mix
+# Calculator.run(Calculator.run("power", 2, 3))
 # Calculator.format_result(Calculator.run("modulo", 10, 0))
 # Calculator.format_result(Calculator.run("unknown", 10, 3))
